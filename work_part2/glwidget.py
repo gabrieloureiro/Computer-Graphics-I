@@ -73,7 +73,7 @@ class GLWidget(QOpenGLWidget):
         glLoadIdentity()
         
         '''Projeção Perspectiva'''
-        #gluPerspective(45, width / height, 0.5, 100)
+        #gluPerspective(20, width / height, 0.5, 100)
         
         '''Projeção Ortogonal'''
         #glOrtho(-15, 15, -2, 15, 5, 80)
@@ -86,11 +86,11 @@ class GLWidget(QOpenGLWidget):
         
         '''VISTAS '''
         '''Vista Proxima Entrada Circuito'''
-        gluLookAt(40,4,51, 55,1,54, 0,1,0)
+        gluLookAt(37,37,50, 50,0,50, 0,1,0)
         '''Vista Superior'''
-        #gluLookAt(80,85,60, 80,5,60, 82,0,0)
+        #gluLookAt(40,85,60, 50,5,50, 0,1,0)
         '''Vista Arquibancada'''
-        #gluLookAt(68,4,40, 65,0.1,50, 0,3,0)
+        #gluLookAt(68,4,40, 65,0.1,100, 0,3,2)
 
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)

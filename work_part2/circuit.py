@@ -3,190 +3,72 @@ from work_part1 import obj
 def draw_circuit():
     #rgb_wall_material = [44/255, 137/255, 142/255]
     rgb_gramado = [50/255, 205/255, 50/255]
-    rgb_asfalto = [76/255,76/255,76/255]
+    rgb_folhas = [50/255, 140/255, 50/255]
+    rgb_terra = [107/255,66/255,38/255]
+    rgb_ferro = [168/255, 168/255, 168/255]
+    rgb_campo = [1,1,1]
     gramado_material = obj.Material(rgb_gramado, rgb_gramado, [0.3,0.3,0.3], 10)
-    asfalto_material = obj.Material(rgb_asfalto, rgb_asfalto, [0.3,0.3,0.3], 10)
-    espelho_material = obj.Material([0.8,0.8,0.8], [0,0,0], [0.8,0.8,0.8], 20)
+    campo_material = obj.Material(rgb_campo,rgb_campo, [0.3,0.3,0.3],10)
+    caminho_material = obj.Material(rgb_terra, rgb_terra, [0.3,0.3,0.3], 10)
+    ferro_material = obj.Material(rgb_ferro, rgb_ferro, [0.3,0.3,0.3], 10)
+    #espelho_material = obj.Material([0.8,0.8,0.8], [0,0,0], [0.8,0.8,0.8], 20)
     
     # CHÃO
     glPushMatrix()
-    glScalef(150., 0.01, 150.)
+    glScalef(150.,0.01, 150.)
     cube = obj.Obj().import_obj('../objects/cube_vn.obj', gramado_material)
     draw_polygon(cube)
     glPopMatrix()
 
-    # Reta Principal
+     # Reta Esquerda
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
-    glTranslatef(49.1 ,0., 51)
-    glScalef(50.9, 0.05, 3.8)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', campo_material)
+    glTranslatef(37 ,0., 51)
+    glScalef(67, 0.5, 0.5)
     draw_polygon(cube)
     glPopMatrix()
     
-    # C1.1
+    # Reta Direita
     glPushMatrix()
-    glTranslatef(100,0,55)
-    glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-    
-    # C1.2
-    glPushMatrix()
-    glTranslatef(103.8,0,55) #Trazendo para a origem o triangulo
-    glRotatef(-90,0,1,0) #Rotacionando 270 em y
-    glScalef(5,0.05,5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # C1.3
-    glPushMatrix()
-    glTranslatef(103.8,0,58.8)
-    glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # Reta pos Principal
-    glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
-    glTranslatef(103.9 ,0., 58.9)
-    glScalef(4, 0.05, 20)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', campo_material)
+    glTranslatef(37 ,0., 130)
+    glScalef(67, 0.5, 0.5)
     draw_polygon(cube)
     glPopMatrix()
 
-        
-    # C2.1
+    # Reta Inferior
     glPushMatrix()
-    glTranslatef(103.9,0,79)
-    #glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # Reta pos reta pos Principal
-    glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
-    glTranslatef(99 ,0., 78.9)
-    glScalef(5, 0.05, 4)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', campo_material)
+    glTranslatef(37 ,0., 51)
+    glScalef(0.5, 0.5, 79)
     draw_polygon(cube)
     glPopMatrix()
 
-    # C3.1
+    # Reta Central
     glPushMatrix()
-    glTranslatef(99,0,79)
-    glRotatef(-90,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-    
-    # C3.2
-    glPushMatrix()
-    glTranslatef(95,0,79)
-    glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # C3.3
-    glPushMatrix()
-    glTranslatef(95,0,75.1)
-    glRotatef(-90,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-            
-    # C3.4
-    glPushMatrix()
-    glTranslatef(91.1,0,75.1)
-    glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # C3.5
-    glPushMatrix()
-    glTranslatef(91.1,0,71.1)
-    glRotatef(-90,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-            
-    # C3.6
-    glPushMatrix()
-    glTranslatef(87.1,0,71.1)
-    glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-
-    # Reta pos reta pos pos Principal
-    glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
-    glTranslatef(57.1 ,0., 67.1)
-    glScalef(30, 0.05, 4)
-    draw_polygon(cube)
-    glPopMatrix()
-    
-    # C4.1
-    glPushMatrix()
-    glTranslatef(57.1,0,71.1)
-    glRotatef(180,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-            
-    # C4.2
-    glPushMatrix()
-    glTranslatef(53.1,0,71.1)
-    #glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # C4.3
-    glPushMatrix()
-    glTranslatef(53.1,0,75.1)
-    glRotatef(180,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-            
-    # C4.4
-    glPushMatrix()
-    glTranslatef(49.1,0,75.1)
-    #glRotatef(90,0,1,0) #Rotacionando 90 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # C4.5
-    glPushMatrix()
-    glTranslatef(49.1,0,75.1)
-    glRotatef(-90,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
-    glPopMatrix()
-
-    # Reta antes reta Principal
-    glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
-    glTranslatef(45.3 ,0., 54.9)
-    glScalef(3.8, 0.05, 20.2 )
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', campo_material)
+    glTranslatef(67 ,0., 51)
+    glScalef(0.5, 0.5, 79)
     draw_polygon(cube)
     glPopMatrix()
 
-    # C5.1
+    # Reta Superior
     glPushMatrix()
-    glTranslatef(49.1,0,54.9)
-    glRotatef(180,0,1,0) #Rotacionando 270 em y
-    glScalef(5, 0.05, 5)
-    draw_unitTriangle(asfalto_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', campo_material)
+    glTranslatef(104 ,0., 51)
+    glScalef(0.5, 0.5, 79)
+    draw_polygon(cube)
     glPopMatrix()
 
-    draw_car(positionInitial=[53.,0.6,53.])
-    draw_car(color=[0.,0.,1], positionInitial=[57.,0.6,52.])
+    # draw_goalVertical(positionInitial=[53.,5,57])
+    # draw_goalHorizontal(positionInitial=[53.,5,56.5])
+    # draw_goalVertical(positionInitial=[53.,5,140])
+
+    # draw_car(positionInitial=[53.,0.6,53.])
+    # draw_car(color=[0.,0.,1], positionInitial=[57.,0.6,52.])
+    # draw_car(positionInitial=[53.,0.6,53.])
+    # draw_car(color=[0.,1.,0], positionInitial=[61.,0.6,54.])#x y z
+
 
     # Arquibancada:
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0.1,0.05,0.05])
@@ -194,39 +76,126 @@ def draw_circuit():
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, [0.7,0.7,0.7])
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
-    glTranslatef(75, 0.05, 40)
+    glTranslatef(68, 0.05, 33)
     glScalef(2,0.4,1)
     objeto('objetos/grandstand.obj')
     glPopMatrix()
-
-    # Criando Poste de Iluminação do Circuito
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0.1,0.05,0.05])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, [0.8,0.8,0.8])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, [0.7,0.7,0.7])
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
-    glTranslatef(75, 0.05, 60)
-    glScalef(3, 11, 3)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', asfalto_material)
+    glTranslatef(68, 0.1, 20)
+    glScalef(2,0.9,1)
+    objeto('objetos/grandstand.obj')
+    glPopMatrix()
+
+    #Folhas Arvore:
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_folhas)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_folhas)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_folhas)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(104, 0.1, 20)
+    glScalef(1,0.5,1.5)
+    objeto('objetos/MapleTreeLeaves.obj')
+    glPopMatrix()
+
+    # Caule Arvore:
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_terra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_terra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_terra)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(104, 0.1, 20)
+    glScalef(1,0.5,1.5)
+    objeto('objetos/MapleTreeStem.obj')
+    glPopMatrix()
+
+    # #Bancos:
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_terra)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_terra)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_terra)
+    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
+    # glPushMatrix()
+    # glTranslatef(68, 0.1, 130)
+    # glScalef(0.02,0.02,0.07)
+    # glRotatef(180,0,1,0)
+    # objeto('objetos/Bench_HighRes.obj')
+    # glPopMatrix()
+
+    # Criando traves
+    
+    ##TRAVE TIME A VERTICAL ESQUERDA
+    glPushMatrix()
+    glTranslatef(40, 0, 75)
+    glScalef(1, 5, 1)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
     draw_polygon(cube)
     glPopMatrix()
 
-    # Tampo do Poste:
+    ##TRAVE TIME A VERTICAL DIREITA
     glPushMatrix()
-    glTranslatef(75., 11.06, 59.5)
-    glScalef(5, 0.05, 5)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', espelho_material)
+    glTranslatef(40, 0, 105)
+    glScalef(1, 5, 1)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
+    draw_polygon(cube)
+    glPopMatrix()
+
+    ##TRAVE TIME A HORIZONTAL
+    glPushMatrix()
+    glTranslatef(40, 5, 75)
+    glScalef(1, 1, 31)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
     draw_polygon(cube)
     glPopMatrix()
 
 
-def draw_car(color=[1,0.,0.], positionInitial=[0.,0.6,0.]):
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 10)
+    ##TRAVE TIME B VERTICAL ESQUERDA
     glPushMatrix()
-    glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
-    glRotatef(90,0,1,0)
-    glScalef(0.5,0.5,0.5)
-    objeto('objetos/Ferrari.obj')
+    glTranslatef(100, 0, 75)
+    glScalef(1, 5, 1)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
+    draw_polygon(cube)
     glPopMatrix()
+
+    ##TRAVE TIME A VERTICAL DIREITA
+    glPushMatrix()
+    glTranslatef(100, 0, 105)
+    glScalef(1, 5, 1)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
+    draw_polygon(cube)
+    glPopMatrix()
+
+    ##TRAVE TIME A HORIZONTAL
+    glPushMatrix()
+    glTranslatef(100, 5, 75)
+    glScalef(1, 1, 31)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', caminho_material)
+    draw_polygon(cube)
+    glPopMatrix()
+
+
+    # # Tampo do Poste:
+    # glPushMatrix()
+    # glTranslatef(75., 11.06, 59.5)
+    # glScalef(5, 0.05, 5)
+    # cube = obj.Obj().import_obj('../objects/cube_vn.obj', espelho_material)
+    # draw_polygon(cube)
+    # glPopMatrix()
+
+
+# def draw_car(color=[1,0.,0.], positionInitial=[0.,0.6,0.]):
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
+#     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 10)
+#     glPushMatrix()
+#     glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
+#     glRotatef(0,0,1,0)
+#     glScalef(0.06,0.06,0.06)
+#     objeto('objetos/10502_Football_Goalpost_v1_L3.obj')
+#     glPopMatrix()
 
 def draw_polygon(obj):
     for face in obj.faces:
