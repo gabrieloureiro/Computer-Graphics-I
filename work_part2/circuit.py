@@ -15,7 +15,7 @@ def draw_circuit():
     
     # CHÃO
     glPushMatrix()
-    glScalef(150.,0.01, 150.)
+    glScalef(150.,0.01, 200.)
     cube = obj.Obj().import_obj('../objects/cube_vn.obj', gramado_material)
     draw_polygon(cube)
     glPopMatrix()

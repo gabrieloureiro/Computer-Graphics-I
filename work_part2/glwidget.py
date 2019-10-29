@@ -79,7 +79,7 @@ class GLWidget(QOpenGLWidget):
         #glOrtho(-15, 15, -2, 15, 5, 80)
         
         '''Projeção Obliqua e Paralelas'''
-        glFrustum(-15, 15, -2, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
+        glFrustum(-15, 20, -2, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
         #gluPerspective(45, (width/height), 5, 60)
 
         
