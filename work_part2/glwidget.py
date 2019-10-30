@@ -79,14 +79,15 @@ class GLWidget(QOpenGLWidget):
         #glOrtho(-15, 15, -2, 15, 5, 80)
         
         '''Projeção Obliqua e Paralelas'''
-        glFrustum(-15, 20, -2, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
+        glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
         #gluPerspective(45, (width/height), 5, 60)
 
         
         
         '''VISTAS '''
         '''Vista Proxima Entrada Circuito'''
-        gluLookAt(37,37,50, 50,0,50, 0,1,0)
+        gluLookAt(37,37,50, 50,0,50, 0,1,0)#gabriel
+        #gluLookAt(35,20,51, 55,1,54, 0,1,0)
         '''Vista Superior'''
         #gluLookAt(40,85,60, 50,5,50, 0,1,0)
         '''Vista Arquibancada'''

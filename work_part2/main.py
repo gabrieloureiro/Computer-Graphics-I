@@ -5,7 +5,7 @@ from mainwindow import Window
 from PyQt5.QtWidgets import QApplication
 
 if __name__ == '__main__':
-    width, height = 1000, 1000
+    width, height = 800, 600
     app = QApplication(sys.argv)
     window = Window(width, height)
     print ("Main")
