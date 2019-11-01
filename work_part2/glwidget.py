@@ -56,9 +56,9 @@ class GLWidget(QOpenGLWidget):
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
         # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [20, 20, 74, 1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [0, 0, 30]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glLightfv(GL_LIGHT0, GL_POSITION, [20, 10, 100, 1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0,0]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 180) # ANGULO DE ABERTURA DO RAIO DE LUZ
         # glEnable(GL_LIGHTING)
 
         '''
@@ -91,8 +91,8 @@ class GLWidget(QOpenGLWidget):
         # >>> VISTA GERAL SUPERIOR (TERRENO COMPLETO)
         '''
 
-        # glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
-        # gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
+        glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
+        gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
         
         '''
         # >>> VISTA DO FUNDO DO TERRENO
@@ -103,8 +103,8 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> VISTA DA RUA (CANTEIRO INFERIOR)
         '''
-        gluPerspective(125, (width/height), 2, 150)
-        gluLookAt(11,4,30, 120,1,65, 0,1,0)
+        # gluPerspective(125, (width/height), 2, 150)
+        # gluLookAt(11,4,30, 120,1,65, 0,1,0)
 
         '''
         # >>> VISTA PARALELA À ARQUIBANCADA

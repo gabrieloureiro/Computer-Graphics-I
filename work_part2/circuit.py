@@ -80,7 +80,7 @@ def draw_circuit():
 
     # Chamada para criação dos carros
     #draw_carDown()
-    draw_carUpEntry(color=[0,0,1], positionInitial=[29.,0.5,75.])
+    draw_carUpEntry(color=[0,0,1], positionInitial=[29.,0.05,75.])
     draw_carUp()
 
     # Arquibancada:
@@ -361,7 +361,7 @@ def draw_circuit():
     # glPopMatrix()
 
 # Função Carros
-def draw_carUpEntry(color=[0,0,1], positionInitial=[30.,0.03,160.]):
+def draw_carUpEntry(color=[0,0,1], positionInitial=[30.,0.05,160.]):
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
@@ -373,7 +373,7 @@ def draw_carUpEntry(color=[0,0,1], positionInitial=[30.,0.03,160.]):
     objeto('objetos/ferrari.obj')
     glPopMatrix()
 
-def draw_carUp(color=[1,0,0], positionInitial=[58.,0.03,175.]):
+def draw_carUp(color=[1,0,0], positionInitial=[58.,0.05,175.]):
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
