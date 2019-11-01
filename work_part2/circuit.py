@@ -10,6 +10,7 @@ def draw_circuit():
     rgb_cal = [1,1,1]
     rgb_asfalto = [76/255,76/255,76/255]
     rgb_lista = [217/255, 217/255, 25/255]
+    rgb_detento = [217/255, 135/255, 25/255]
     
     asfalto_material = obj.Material(rgb_asfalto, rgb_asfalto, [0.3,0.3,0.3], 10)
     gramado_material = obj.Material(rgb_gramado, rgb_gramado, [0.3,0.3,0.3], 10)
@@ -19,6 +20,9 @@ def draw_circuit():
     ferro_material = obj.Material(rgb_ferro, rgb_ferro, [0.3,0.3,0.3], 10)
     #espelho_material = obj.Material([0.8,0.8,0.8], [0,0,0], [0.8,0.8,0.8], 20)
     
+
+    # OBJETOS QUE COMPÕEM O CENÁRIO
+
     # CHÃO
     glPushMatrix()
     glScalef(150.,0.01, 200.)
@@ -74,18 +78,10 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-
-
-    # draw_car(positionInitial=[25.,0.05,50.])
-    # draw_car(positionInitial=[53.,0.6,53.])
-    #draw_carUp()
-    draw_carDown()
+    # Chamada para criação dos carros
+    #draw_carDown()
     draw_carUpEntry(color=[0,0,1], positionInitial=[29.,0.5,75.])
     draw_carUp()
-    # draw_car(color=[0.,0.,1], positionInitial=[57.,0.6,52.])
-    # draw_car(positionInitial=[53.,0.6,53.])
-    # draw_car(color=[0.,1.,0], positionInitial=[61.,0.6,54.])#x y z
-
 
     # Arquibancada:
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0.1,0.05,0.05])
@@ -158,29 +154,29 @@ def draw_circuit():
     objeto('objetos/MapleTreeStem.obj')
     glPopMatrix()
 
-    #Folhas Arvore2:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_folhas)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_folhas)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_folhas)
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
-    glPushMatrix()
-    glTranslatef(106, 0.1, 150)
-    glScalef(1,0.5,1.5)
-    objeto('objetos/MapleTreeLeaves.obj')
-    glPopMatrix()
+    # # Folhas Arvore2:
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_folhas)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_folhas)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_folhas)
+    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    # glPushMatrix()
+    # glTranslatef(106, 0.1, 150)
+    # glScalef(1,0.5,1.5)
+    # objeto('objetos/MapleTreeLeaves.obj')
+    # glPopMatrix()
 
-    # Caule Arvore2:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
-    glPushMatrix()
-    glTranslatef(106, 0.1, 150)
-    glScalef(1,0.5,1.5)
-    objeto('objetos/MapleTreeStem.obj')
-    glPopMatrix()
+    # # Caule Arvore2:
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_madeira)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
+    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    # glPushMatrix()
+    # glTranslatef(106, 0.1, 150)
+    # glScalef(1,0.5,1.5)
+    # objeto('objetos/MapleTreeStem.obj')
+    # glPopMatrix()
 
-    #Cerca
+    # Cerca direita
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
@@ -192,7 +188,7 @@ def draw_circuit():
     objeto('objetos/fance.obj')
     glPopMatrix()
 
-    #Portão
+    # Portão
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
@@ -204,7 +200,7 @@ def draw_circuit():
     objeto('objetos/military_fence_gate.obj')
     glPopMatrix()
 
-    #Fundo
+    # Cerca Fundo
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
@@ -216,7 +212,7 @@ def draw_circuit():
     objeto('objetos/fance.obj')
     glPopMatrix()
 
-    #Cerca
+    # Cerca Esquerda
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
@@ -237,9 +233,45 @@ def draw_circuit():
     glTranslatef(40.7, 0.1, 74)
     glScalef(2,2.6,3)
     glRotatef(180,0,1,0)
-    glRotatef(180,0,1,0)
     objeto('objetos/wooden_watch_tower2.obj')
     glPopMatrix()
+
+    # Detento 1
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(90, 0.1, 155)
+    glScalef(0.09,0.015,1.05)
+    glRotatef(180,0,1,1)
+    objeto('objetos/male.obj')
+    glPopMatrix()
+
+    # Detento 2
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(80, 0.1, 60)
+    glScalef(0.09,0.015,1.05)
+    glRotatef(180,0,1,0)
+    objeto('objetos/StickFigurea.obj')
+    glPopMatrix()
+
+    # # Detento 3
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
+    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    # glPushMatrix()
+    # glTranslatef(50, 0.1, 90)
+    # glScalef(0.09,0.015,1.05)
+    # glRotatef(180,0,1,1)
+    # objeto('objetos/male.obj')
+    # glPopMatrix()
+
 
     # #Bancos:
     # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_terra)
@@ -252,11 +284,8 @@ def draw_circuit():
     # glRotatef(180,0,1,0)
     # objeto('objetos/Bench_HighRes.obj')
     # glPopMatrix()
-
-
-    # Criando traves
-    
-    ##TRAVE TIME A VERTICAL ESQUERDA
+    #     
+    ##TRAVE INFERIOR - VERTICAL ESQUERDA
     glPushMatrix()
     glTranslatef(67, 0, 75)
     glScalef(1, 5, 1)
@@ -264,7 +293,7 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-    ##TRAVE TIME A VERTICAL DIREITA
+    ##TRAVE INFERIOR - VERTICAL DIREITA
     glPushMatrix()
     glTranslatef(67, 0, 105)
     glScalef(1, 5, 1)
@@ -272,7 +301,7 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-    ##TRAVE TIME A HORIZONTAL
+    ##TRAVE INFERIOR - HORIZONTAL
     glPushMatrix()
     glTranslatef(67, 5, 75)
     glScalef(1, 1, 31)
@@ -281,7 +310,7 @@ def draw_circuit():
     glPopMatrix()
 
 
-    ##TRAVE TIME B VERTICAL ESQUERDA
+    ##TRAVE SUPERIOR - VERTICAL ESQUERDA
     glPushMatrix()
     glTranslatef(100, 0, 75)
     glScalef(1, 5, 1)
@@ -289,7 +318,7 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-    ##TRAVE TIME A VERTICAL DIREITA
+    ##TRAVE SUPERIOR - VERTICAL DIREITA
     glPushMatrix()
     glTranslatef(100, 0, 105)
     glScalef(1, 5, 1)
@@ -297,7 +326,7 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-    ##TRAVE TIME A HORIZONTAL
+    ##TRAVE SUPERIOR - HORIZONTAL
     glPushMatrix()
     glTranslatef(100, 5, 75)
     glScalef(1, 1, 31)
@@ -313,6 +342,8 @@ def draw_circuit():
     # cube = obj.Obj().import_obj('../objects/cube_vn.obj', espelho_material)
     # draw_polygon(cube)
     # glPopMatrix()
+
+    # Função Carros
 def draw_carUpEntry(color=[0,0,1], positionInitial=[30.,0.5,160.]):
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
@@ -321,12 +352,11 @@ def draw_carUpEntry(color=[0,0,1], positionInitial=[30.,0.5,160.]):
     glPushMatrix()
     glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
     glScalef(1.8,1,5)
-    glMatrixMode(GL_MODELVIEW);
     glRotatef(193,0,1,0)
     objeto('objetos/ferrari.obj')
     glPopMatrix()
 
-def draw_carUp(color=[1,0,0], positionInitial=[58.,0.5,160.]):
+def draw_carUp(color=[1,0,0], positionInitial=[58.,0.5,175.]):
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
@@ -334,24 +364,23 @@ def draw_carUp(color=[1,0,0], positionInitial=[58.,0.5,160.]):
     glPushMatrix()
     glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
     glScalef(1.8,1,5)
-    glMatrixMode(GL_MODELVIEW);
     glRotatef(90,0,1,0)
     objeto('objetos/ferrari.obj')
     glPopMatrix()
     
-def draw_carDown(color=[1,0,0], positionInitial=[20,0.5,30.]):
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
-    glPushMatrix()
-    glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
-    glScalef(1.4,1,5)
-    glMatrixMode(GL_MODELVIEW);
-    #glRotatef(180,0,1,0)
-    objeto('objetos/ferrari.obj')
-    glPopMatrix()
+# def draw_carDown(color=[1,0,0], positionInitial=[20,0.5,30.]):
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, color)
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color)
+#     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, color)
+#     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+#     glPushMatrix()
+#     glTranslatef(positionInitial[0], positionInitial[1], positionInitial[2])
+#     glScalef(1.4,1,5)
+#     #glRotatef(180,0,1,0)
+#     objeto('objetos/ferrari.obj')
+#     glPopMatrix()
 
+    # Função polígonos 
 def draw_polygon(obj):
     for face in obj.faces:
         glMaterialfv(GL_FRONT, GL_AMBIENT, face.material.k_a_rgb)
@@ -365,7 +394,7 @@ def draw_polygon(obj):
             glVertex3fv(vertex.coordinates[:3])
         glEnd()
 
-
+    # Função triângulo unitário
 def draw_unitTriangle(material):
     #color = (0.6,0,0)
 

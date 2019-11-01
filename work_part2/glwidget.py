@@ -85,9 +85,10 @@ class GLWidget(QOpenGLWidget):
         
         
         '''VISTAS '''
-        '''Vista Proxima Entrada Circuito'''
-        gluLookAt(37,37,50, 50,0,50, 0,1,0)#gabriel
-        #gluLookAt(35,20,51, 55,1,54, 0,1,0)
+        #gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
+        gluLookAt(70,10,40, 70,1,80, 0,4,3)
+        #gluLookAt(117,20,80, 20,1,80, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
+
         '''Vista Superior'''
         #gluLookAt(40,85,60, 50,5,50, 0,1,0)
         '''Vista Arquibancada'''
