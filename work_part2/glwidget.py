@@ -22,11 +22,11 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> FONTE DE LUZ - MANHÃ (LUZES SPOT DESLIGADAS)
         '''
-        # glEnable(GL_LIGHT0)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 11, 55, 1.0])
+        glEnable(GL_LIGHT0)
+        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
+        glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 11, 55, 1.0])
 
         '''
         # >>> FONTE DE LUZ - NOITE(LUZES SPOT DESLIGADAS)
@@ -40,14 +40,14 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> FONTE DE LUZ - NOITE(SPOTLIGHT DA TORRE ILUMINANDO PARTE DO TERRENO)
         '''
-        glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [40.7, 20, 74, 1]) # PONTO DA FONTE LUMINOSA
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [72, 0, 0]) # DIREÇÃO DO RAIO DE LUZ
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
-        glEnable(GL_LIGHTING)
+        # glEnable(GL_LIGHT0)
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [40.7, 19, 74, 1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [72, 0, 0]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glEnable(GL_LIGHTING)
 
         '''
         # >>> FONTE DE LUZ - NOITE(SPOTLIGHT DA TORRE ILUMINANDO A RUA)
@@ -78,7 +78,7 @@ class GLWidget(QOpenGLWidget):
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
              
-        '''VISTAS [EYE POSITION, LOOK_AT POINT, VIEW_UP POINT] '''
+        ''' ############## VISTAS [EYE POSITION, LOOK_AT POINT, VIEW_UP POINT] ############## '''
 
         '''
         # >>> VISTA DA ARQUIBANCADA
@@ -97,14 +97,27 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> VISTA DO FUNDO DO TERRENO
         '''
-        #glFrustum(-35, 50, -6, 8, 5, 60)
-        #gluLookAt(117,20,80, 20,1,80, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
+        # glFrustum(-35, 50, -6, 8, 5, 60)
+        # gluLookAt(117,20,80, 20,1,80, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
+
+        '''
+        # >>> VISTA PARA AS LIXEIRAS LIXEIRA
+        '''
+
+        # glFrustum(-35, 50, -6, 8, 5, 60)
+        # gluLookAt(50,8,60, 20,1,60, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
 
         '''
         # >>> VISTA DA RUA (CANTEIRO INFERIOR)
         '''
         # gluPerspective(125, (width/height), 2, 150)
         # gluLookAt(11,4,30, 120,1,65, 0,1,0)
+
+        '''
+        # >>> VISTA DA ENTRADA DA PRISÃO (DENTRO DA PRISÃO)
+        '''
+        # gluPerspective(125, (width/height), 1, 80)
+        # gluLookAt(35,3,150, 120,1,150, 0,1,0)
 
         '''
         # >>> VISTA PARALELA À ARQUIBANCADA
