@@ -224,7 +224,7 @@ def draw_circuit():
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
-    glTranslatef(106, 0.1, 150)
+    glTranslatef(106, 0.1, 173)
     glScalef(1,0.5,1.5)
     objeto('objetos/MapleTreeStem.obj')
     glPopMatrix()
@@ -371,17 +371,29 @@ def draw_circuit():
     # glPopMatrix()
 
 
-    # #Bancos:
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_terra)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_terra)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_terra)
-    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
-    # glPushMatrix()
-    # glTranslatef(68, 0.1, 130)
-    # glScalef(0.02,0.02,0.07)
-    # glRotatef(180,0,1,0)
-    # objeto('objetos/Bench_HighRes.obj')
-    # glPopMatrix()
+    #Banco Up Left:
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_verde_lixo)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_verde_lixo)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_verde_lixo)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
+    glPushMatrix()
+    glTranslatef(108.5, 0.1, 75)
+    glScalef(0.08,0.04,0.12)
+    glRotatef(270,0,1,0)
+    objeto('objetos/Bench_HighRes.obj')
+    glPopMatrix()
+
+    #Banco Up Right:
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_vermelho)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_vermelho)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_vermelho)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
+    glPushMatrix()
+    glTranslatef(108.5, 0.1, 118)
+    glScalef(0.08,0.04,0.12)
+    glRotatef(270,0,1,0)
+    objeto('objetos/Bench_HighRes.obj')
+    glPopMatrix()
     
 
     ##TRAVE INFERIOR - VERTICAL ESQUERDA
