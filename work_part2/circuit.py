@@ -94,7 +94,7 @@ def draw_circuit():
     objeto('objetos/camaro.obj')
     glPopMatrix()
 
-    # Carro 02 - saindo no terreno
+    # Carro 02 - Entrando no terreno
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0.1,0.05,0.05])
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, [0.8,0.8,0.8])
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, [0.7,0.7,0.7])
@@ -123,14 +123,14 @@ def draw_circuit():
 
     # Sirene 02
     glPushMatrix()
-    glTranslatef(29, 6, 72)
+    glTranslatef(26.7, 6, 72)
     glScalef(3, 1, 3)
     cube = obj.Obj().import_obj('../objects/cube_vn.obj', vermelho_material)
     draw_polygon(cube)
     glPopMatrix()
 
     glPushMatrix()
-    glTranslatef(29, 6, 75)
+    glTranslatef(26.7, 6, 75)
     glScalef(3, 1, 3)
     cube = obj.Obj().import_obj('../objects/cube_vn.obj', azul_material)
     draw_polygon(cube)
@@ -206,17 +206,6 @@ def draw_circuit():
     glScalef(1,0.5,1.5)
     objeto('objetos/MapleTreeStem.obj')
     glPopMatrix()
-
-    # # Folhas Arvore2:
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_folhas)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_folhas)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_folhas)
-    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
-    # glPushMatrix()
-    # glTranslatef(106, 0.1, 150)
-    # glScalef(1,0.5,1.5)
-    # objeto('objetos/MapleTreeLeaves.obj')
-    # glPopMatrix()
 
     # Caule Arvore2:
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
@@ -295,7 +284,7 @@ def draw_circuit():
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
-    glTranslatef(90, 0.1, 155)
+    glTranslatef(90, 0.1, 120)
     glScalef(1.5,1,2.7)
     glRotatef(270,0,1,0)
     objeto('objetos/male.obj')
@@ -313,6 +302,18 @@ def draw_circuit():
     objeto('objetos/male.obj')
     glPopMatrix()
 
+    #Policial 1
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0,0,0])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, [0,0,0])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, [0,0,0])
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(58, 0.1, 85)
+    glScalef(1.5,1,2.7)
+    glRotatef(270,0,1,0)
+    objeto('objetos/male.obj')
+    glPopMatrix()
+
     # Bola
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0,0,0])
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, [0,0,0])
@@ -320,7 +321,7 @@ def draw_circuit():
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(90, 2, 80)
-    glScalef(1,1,1.5)
+    glScalef(1.3,1,3.05)
     #glRotatef(90,0,1,0)
     objeto('objetos/Ball.obj')
     glPopMatrix()
@@ -350,24 +351,12 @@ def draw_circuit():
     glPopMatrix()
 
 
-    # Quadrado para refletor torre > campo
-    glPushMatrix()
-    glTranslatef(40.7, 19, 74)
-    glScalef(0, 2, 2)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
-    draw_polygon(cube)
-    glPopMatrix()
-
-    # # Detento 3
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
-    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    # # Quadrado para refletor torre > campo
     # glPushMatrix()
-    # glTranslatef(50, 0.1, 90)
-    # glScalef(0.09,0.015,1.05)
-    # glRotatef(180,0,1,1)
-    # objeto('objetos/male.obj')
+    # glTranslatef(40.7, 19, 74)
+    # glScalef(0, 2, 2)
+    # cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    # draw_polygon(cube)
     # glPopMatrix()
 
 
@@ -395,6 +384,17 @@ def draw_circuit():
     objeto('objetos/Bench_HighRes.obj')
     glPopMatrix()
     
+    #Hidrante:
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, [0.3,0,0])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, [0.3,0,0])
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, [0.3,0,0])
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
+    glPushMatrix()
+    glTranslatef(30, 0.03, 13)
+    glScalef(0.07,0.07,0.07)
+    glRotatef(270,1,0,0)
+    objeto('objetos/hidra.obj')
+    glPopMatrix()
 
     ##TRAVE INFERIOR - VERTICAL ESQUERDA
     glPushMatrix()
@@ -444,6 +444,30 @@ def draw_circuit():
     cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
     draw_polygon(cube)
     glPopMatrix()
+
+    # SOL
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_lista)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_lista)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_lista)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(76.5, 40, 55)
+    glScalef(2,2,2.5)
+    #glRotatef(90,0,1,0)
+    objeto('objetos/Ball.obj')
+    glPopMatrix()
+
+    # # LUA
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    # glPushMatrix()
+    # glTranslatef(76.5, 40, 55)
+    # glScalef(2,2,2.5)
+    # #glRotatef(90,0,1,0)
+    # objeto('objetos/Ball.obj')
+    # glPopMatrix()
 
 # Função polígonos 
 def draw_polygon(obj):

@@ -26,7 +26,7 @@ class GLWidget(QOpenGLWidget):
         glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
         glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
         glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 11, 55, 1.0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
 
         '''
         # >>> FONTE DE LUZ - NOITE(LUZES SPOT DESLIGADAS)
@@ -35,7 +35,7 @@ class GLWidget(QOpenGLWidget):
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0, 0, 0, 0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0, 0, 0, 0])
         # glLightfv(GL_LIGHT0, GL_SPECULAR, [0, 0, 0, 0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 11, 55, 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
 
         '''
         # >>> FONTE DE LUZ - NOITE(SPOTLIGHT DA TORRE ILUMINANDO PARTE DO TERRENO)
@@ -44,26 +44,50 @@ class GLWidget(QOpenGLWidget):
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
         # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [40.7, 19, 74, 1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT0, GL_POSITION, [50, 19, 74, 1]) # PONTO DA FONTE LUMINOSA
         # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [72, 0, 0]) # DIREÇÃO DO RAIO DE LUZ
         # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
         # glEnable(GL_LIGHTING)
 
         '''
-        # >>> FONTE DE LUZ - NOITE(SPOTLIGHT DA TORRE ILUMINANDO A RUA)
+        # >>> FONTE DE LUZ - NOITE( ILUMINAÇÃO CDO PORTÃO )
         '''
+        #Luz da Torre iluminando entrada
         # glEnable(GL_LIGHT0)
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
         # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [20, 10, 100, 1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0,0]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 180) # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glLightfv(GL_LIGHT0, GL_POSITION, [29.,4.3,75 ,1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [43, 0.03, 155]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
         # glEnable(GL_LIGHTING)
 
         '''
+        # >>> FONTE DE LUZ - NOITE(FARÓIS + ILUMINAÇÃO)
         '''
+        #Farol do Carro 01 - Inside 
+        glEnable(GL_LIGHT0)
+        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
+        glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [69.,0.03,175,1]) # PONTO DA FONTE LUMINOSA
+        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [107, 0.03, 0]) # DIREÇÃO DO RAIO DE LUZ
+        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        glEnable(GL_LIGHTING)
 
+        #Farol do Carro 02 - 
+        glEnable(GL_LIGHT0)
+        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
+        glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [40.,0.03,89 ,1]) # PONTO DA FONTE LUMINOSA
+        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [90, 0.03, 167]) # DIREÇÃO DO RAIO DE LUZ
+        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        glEnable(GL_LIGHTING)
+
+        '''
+        '''
+         
         glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1])
         glEnable(GL_CULL_FACE) #Habilitado o Back Face Culling
         glFrontFace(GL_CCW)
@@ -101,7 +125,7 @@ class GLWidget(QOpenGLWidget):
         # gluLookAt(117,20,80, 20,1,80, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
 
         '''
-        # >>> VISTA PARA AS LIXEIRAS LIXEIRA
+        # >>> VISTA PARA AS LIXEIRAS 
         '''
 
         # glFrustum(-35, 50, -6, 8, 5, 60)
