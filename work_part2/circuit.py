@@ -1,28 +1,28 @@
 from OpenGL.GL import *
 from work_part1 import obj
 def draw_circuit():
-    #rgb_wall_material = [44/255, 137/255, 142/255]
-    rgb_gramado = [50/255, 205/255, 50/255]
-    rgb_folhas = [50/255, 140/255, 50/255]
-    rgb_terra = [151/255,105/255,79/255]
-    rgb_madeira = [92/255, 51/255, 23/255]
-    rgb_ferro = [168/255, 168/255, 168/255]
-    rgb_cal = [1,1,1]
-    rgb_asfalto = [76/255,76/255,76/255]
-    rgb_lista = [217/255, 217/255, 25/255]
-    rgb_detento = [217/255, 135/255, 25/255]
-    rgb_lixeira = [35/255, 107/255, 142/255]
-    rgb_verde_lixo = [33/255, 94/255, 33/255]
+    rgb_wall_material = [44/255, 137/255, 142/255]
     rgb_vermelho = [1,0,0]
     rgb_azul = [0,0,1]
-    azul_material = obj.Material(rgb_azul, rgb_azul, [0.3,0.3,0.3], 10)
-    vermelho_material = obj.Material(rgb_vermelho, rgb_vermelho, [0.3,0.3,0.3], 10)
-    gramado_material = obj.Material(rgb_gramado, rgb_gramado, [0.3,0.3,0.3], 10)
-    madeira_material = obj.Material(rgb_madeira,rgb_madeira, [0.3,0.3,0.3],10)
-    cal_material = obj.Material(rgb_cal,rgb_cal, [0.3,0.3,0.3],10)
-    terra_material = obj.Material(rgb_terra, rgb_terra, [0.1,0.1,0.1], 10)
-    ferro_material = obj.Material(rgb_ferro, rgb_ferro, [0.3,0.3,0.3], 10)
-    espelho_material = obj.Material([0.8,0.8,0.8], [0,0,0], [0.8,0.8,0.8], 20)
+    gramado = [50/255, 205/255, 50/255]
+    folhas = [50/255, 140/255, 50/255]
+    solo = [151/255,105/255,79/255]
+    arvore = [92/255, 51/255, 23/255]
+    aço = [168/255, 168/255, 168/255]
+    cal = [1,1,1]
+    asfalto = [76/255,76/255,76/255]
+    listra = [217/255, 217/255, 25/255]
+    detento = [217/255, 135/255, 25/255]
+    lixeira = [35/255, 107/255, 142/255]
+    latao = [33/255, 94/255, 33/255]
+    azul = obj.Material(rgb_azul, rgb_azul, [0.3,0.3,0.3], 10)
+    vermelho = obj.Material(rgb_vermelho, rgb_vermelho, [0.3,0.3,0.3], 10)
+    grama = obj.Material(gramado, gramado, [0.3,0.3,0.3], 10)
+    madeira = obj.Material(arvore,arvore, [0.3,0.3,0.3],10)
+    cal = obj.Material(cal,cal, [0.3,0.3,0.3],10)
+    terra = obj.Material(solo, solo, [0.1,0.1,0.1], 10)
+    ferro = obj.Material(aço, aço, [0.3,0.3,0.3], 10)
+    espelho = obj.Material([0.8,0.8,0.8], [0,0,0], [0.8,0.8,0.8], 20)
     
 
     # OBJETOS QUE COMPÕEM O CENÁRIO
@@ -30,13 +30,13 @@ def draw_circuit():
     # Chão
     glPushMatrix()
     glScalef(150.,0.01, 200.)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', terra_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', terra)
     draw_polygon(cube)
     glPopMatrix()
 
     # Campo
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', gramado_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', grama)
     glTranslatef(65 ,0., 52)
     glScalef(40, 0.02, 78)
     draw_polygon(cube)
@@ -44,7 +44,7 @@ def draw_circuit():
 
      # Reta Esquerda
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     glTranslatef(65 ,0., 51)
     glScalef(40, 0.1, 1)
     draw_polygon(cube)
@@ -52,7 +52,7 @@ def draw_circuit():
     
     # Reta Direita
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     glTranslatef(65 ,0., 130)
     glScalef(40, 0.1, 1)
     draw_polygon(cube)
@@ -60,7 +60,7 @@ def draw_circuit():
 
     # Reta Inferior
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     glTranslatef(65 ,0., 51)
     glScalef(0.5, 0.1, 79)
     draw_polygon(cube)
@@ -68,7 +68,7 @@ def draw_circuit():
 
     # Reta Central
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     glTranslatef(86 ,0., 51)
     glScalef(0.5, 0.1, 79)
     draw_polygon(cube)
@@ -76,7 +76,7 @@ def draw_circuit():
 
     # Reta Superior
     glPushMatrix()
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     glTranslatef(105 ,0., 51)
     glScalef(0.5, 0.1, 79)
     draw_polygon(cube)
@@ -110,14 +110,14 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(55.5, 6, 172)
     glScalef(3, 1, 3)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', vermelho_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', vermelho)
     draw_polygon(cube)
     glPopMatrix()
 
     glPushMatrix()
     glTranslatef(55.5, 6, 175)
     glScalef(3, 1, 3)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', azul_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', azul)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -125,21 +125,21 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(26.7, 6, 72)
     glScalef(3, 1, 3)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', vermelho_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', vermelho)
     draw_polygon(cube)
     glPopMatrix()
 
     glPushMatrix()
     glTranslatef(26.7, 6, 75)
     glScalef(3, 1, 3)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', azul_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', azul)
     draw_polygon(cube)
     glPopMatrix()
 
     # Arquibancada:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, arvore)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(71, 0.05, 25)
@@ -148,9 +148,9 @@ def draw_circuit():
     glPopMatrix()
 
     #Asfalto
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_asfalto)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_asfalto)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_asfalto)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, asfalto)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, asfalto)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, asfalto)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(22, 0.01, 99)
@@ -159,9 +159,9 @@ def draw_circuit():
     glPopMatrix()
 
     #Linha do asfalto
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_lista)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_lista)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_lista)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, listra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, listra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, listra)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(22, 0.01, 99)
@@ -173,7 +173,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(15, 0.01, 1)
     glScalef(1, 1, 192)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -181,14 +181,14 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(28, 0.06, 116)
     glScalef(1, 1, 80)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
     #Folhas Arvore:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_folhas)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_folhas)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_folhas)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, folhas)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, folhas)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, folhas)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(106, 0.1, 20)
@@ -197,9 +197,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Caule Arvore:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, arvore)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(106, 0.1, 20)
@@ -208,9 +208,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Caule Arvore2:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_madeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_madeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, arvore)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, arvore)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(106, 0.1, 173)
@@ -219,9 +219,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Cerca direita
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(75.7, 0.01, 199)
@@ -231,9 +231,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Portão
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(28.8, 0.01, 75)
@@ -243,9 +243,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Cerca Fundo
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(112, 0.01, 98.2)
@@ -255,9 +255,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Cerca Esquerda
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(75.7, 0.01, 0)
@@ -267,9 +267,9 @@ def draw_circuit():
     glPopMatrix()
 
     #Torre do vigia
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(40.7, 0.01, 74)
@@ -279,9 +279,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Detento 1
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, detento)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(90, 0.1, 120)
@@ -291,9 +291,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Detento 2
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_detento)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_detento)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, detento)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, detento)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(75, 0.1, 75)
@@ -327,9 +327,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Lixeira Azul
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_lixeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_lixeira)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_lixeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, lixeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, lixeira)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, lixeira)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
     glPushMatrix()
     glTranslatef(40, 0.05, 50)
@@ -339,9 +339,9 @@ def draw_circuit():
     glPopMatrix()
 
     # Lixeira Verde
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_verde_lixo)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_verde_lixo)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_verde_lixo)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, latao)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, latao)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, latao)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
     glPushMatrix()
     glTranslatef(40, 0.05, 20)
@@ -355,15 +355,15 @@ def draw_circuit():
     # glPushMatrix()
     # glTranslatef(40.7, 19, 74)
     # glScalef(0, 2, 2)
-    # cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal_material)
+    # cube = obj.Obj().import_obj('../objects/cube_vn.obj', cal)
     # draw_polygon(cube)
     # glPopMatrix()
 
 
     #Banco Up Left:
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_verde_lixo)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_verde_lixo)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_verde_lixo)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, latao)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, latao)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, latao)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1)
     glPushMatrix()
     glTranslatef(108.5, 0.1, 75)
@@ -400,7 +400,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(67, 0, 75)
     glScalef(1, 5, 1)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -408,7 +408,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(67, 0, 105)
     glScalef(1, 5, 1)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -416,7 +416,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(67, 5, 75)
     glScalef(1, 1, 31)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -425,7 +425,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(100, 0, 75)
     glScalef(1, 5, 1)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -433,7 +433,7 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(100, 0, 105)
     glScalef(1, 5, 1)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
@@ -441,14 +441,14 @@ def draw_circuit():
     glPushMatrix()
     glTranslatef(100, 5, 75)
     glScalef(1, 1, 31)
-    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro_material)
+    cube = obj.Obj().import_obj('../objects/cube_vn.obj', ferro)
     draw_polygon(cube)
     glPopMatrix()
 
     # SOL
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_lista)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_lista)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_lista)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, listra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, listra)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, listra)
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     glPushMatrix()
     glTranslatef(76.5, 40, 55)
@@ -458,9 +458,9 @@ def draw_circuit():
     glPopMatrix()
 
     # # LUA
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, rgb_ferro)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, rgb_ferro)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, rgb_ferro)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
     # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     # glPushMatrix()
     # glTranslatef(76.5, 40, 55)
