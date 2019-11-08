@@ -445,22 +445,10 @@ def draw_circuit():
     draw_polygon(cube)
     glPopMatrix()
 
-    # SOL
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, listra)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, listra)
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, listra)
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
-    glPushMatrix()
-    glTranslatef(76.5, 40, 55)
-    glScalef(2,2,2.5)
-    #glRotatef(90,0,1,0)
-    objeto('objetos/Ball.obj')
-    glPopMatrix()
-
-    # # LUA
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
-    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
+    # # SOL
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, listra)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, listra)
+    # glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, listra)
     # glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
     # glPushMatrix()
     # glTranslatef(76.5, 40, 55)
@@ -468,6 +456,18 @@ def draw_circuit():
     # #glRotatef(90,0,1,0)
     # objeto('objetos/Ball.obj')
     # glPopMatrix()
+
+    # LUA
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, aço)
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, aço)
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 3)
+    glPushMatrix()
+    glTranslatef(76.5, 40, 55)
+    glScalef(2,2,2.5)
+    #glRotatef(90,0,1,0)
+    objeto('objetos/Ball.obj')
+    glPopMatrix()
 
 # Função polígonos 
 def draw_polygon(obj):

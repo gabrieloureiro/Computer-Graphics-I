@@ -13,23 +13,32 @@ class GLWidget(QOpenGLWidget):
         glClearColor(25/255, 25/255, 122/255, 1) # COR DO PLANO DE FUNDO  
         glEnable(GL_DEPTH_TEST)
         glEnable(GL_NORMALIZE) # NORMALIZAÇÃO
-        glEnable(GL_LIGHTING)
+        glEnable(GL_LIGHTING) # ATIVAÇÃO DA ILUMINAÇÃO
 
         '''
-        ############# COMPONENTES DA FONTE DE LUZ PRINCIPAL #############
+        ############# COMPONENTES DE FONTE DE LUZ #############
         '''
 
         '''
-        # >>> FONTE DE LUZ - MANHÃ (LUZES SPOT DESLIGADAS)
+        # >>> FONTE DE LUZ PONTUAL - MANHÃ (LUZES DIRECIONAIS DESLIGADAS)
         '''
-        glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
+        # glEnable(GL_LIGHT0)
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
 
         '''
-        # >>> FONTE DE LUZ - NOITE(LUZES SPOT DESLIGADAS)
+        # >>> FONTE DE LUZ PONTUAL - NOITE (LUZES DIRECIONAIS DESLIGADAS)
+        '''
+        # glEnable(GL_LIGHT0)
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.35, 0.35, 0.35, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
+
+        '''
+        # >>> FONTE DE LUZ - NOITE(LUZ SPOT DESLIGADA)
         '''
         # glEnable(GL_LIGHT0)
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0, 0, 0, 0])
@@ -38,7 +47,7 @@ class GLWidget(QOpenGLWidget):
         # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
 
         '''
-        # >>> FONTE DE LUZ - NOITE(SPOTLIGHT DA TORRE ILUMINANDO PARTE DO TERRENO)
+        # >>> FONTE DE LUZ SPOT- NOITE(TORRE ILUMINANDO PARTE DO TERRENO) #BETA
         '''
         # glEnable(GL_LIGHT0)
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
@@ -50,9 +59,8 @@ class GLWidget(QOpenGLWidget):
         # glEnable(GL_LIGHTING)
 
         '''
-        # >>> FONTE DE LUZ - NOITE( ILUMINAÇÃO CDO PORTÃO )
+        # >>> FONTE DE LUZ SPOT - NOITE(ILUMINAÇÃO DO ENTRADA-PORTÃO/METADE DO CAMPO)
         '''
-        #Luz da Torre iluminando entrada
         # glEnable(GL_LIGHT0)
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
@@ -63,27 +71,27 @@ class GLWidget(QOpenGLWidget):
         # glEnable(GL_LIGHTING)
 
         '''
-        # >>> FONTE DE LUZ - NOITE(FARÓIS + ILUMINAÇÃO)
+        # >>> FONTE DE LUZ DIRECIONAL - NOITE(FARÓIS) 
         '''
         #Farol do Carro 01 - Inside 
         glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.25, 0.25, 0.25, 1.0])
         glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
         glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [69.,0.03,175,1]) # PONTO DA FONTE LUMINOSA
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [107, 0.03, 0]) # DIREÇÃO DO RAIO DE LUZ
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        glLightfv(GL_LIGHT0, GL_POSITION, [59.7,0.03,173,1]) # PONTO DA FONTE LUMINOSA
+        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [106.5, 0.05, 173]) # DIREÇÃO DO RAIO DE LUZ
+        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 30); # ANGULO DE ABERTURA DO RAIO DE LUZ
         glEnable(GL_LIGHTING)
 
         #Farol do Carro 02 - 
-        glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [40.,0.03,89 ,1]) # PONTO DA FONTE LUMINOSA
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [90, 0.03, 167]) # DIREÇÃO DO RAIO DE LUZ
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
-        glEnable(GL_LIGHTING)
+        # glEnable(GL_LIGHT1)
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [40.,0.03,89 ,1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [31, 0.03, 75]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glEnable(GL_LIGHTING)
 
         '''
         '''
