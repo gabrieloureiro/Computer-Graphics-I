@@ -20,77 +20,111 @@ class GLWidget(QOpenGLWidget):
         '''
 
         '''
-        # >>> FONTE DE LUZ PONTUAL - MANHÃ (LUZES DIRECIONAIS DESLIGADAS)
+        # >>> FONTE DE LUZ DIRECIONAL - SOL
+        '''
+        glEnable(GL_LIGHT0)
+        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
+        glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
+        glLightfv(GL_LIGHT0, GL_POSITION, [80, 120, 140, 1.0]) # POSIÇÃO ALEATÓRIA SETADA PARA O SOL
+        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0.03, 100]) # RAIO DE LUZ DIRECIONADO AO CENTRO DO CENÁRIO
+
+        ''' 
+        # >>> FONTE DE LUZ DIRECIONAL - LUA
         '''
         # glEnable(GL_LIGHT0)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.3, 0.3, 0.3, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0., 0.1, 0.1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [0.1, 0.1, 0.1, 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [80, 120, 140, 1.0]) # POSIÇÃO ALEATÓRIA SETADA PARA O SOL
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0.03, 100]) # RAIO DE LUZ DIRECIONADO AO CENTRO DO CENÁRIO
 
         '''
-        # >>> FONTE DE LUZ PONTUAL - NOITE (LUZES DIRECIONAIS DESLIGADAS)
-        '''
-        # glEnable(GL_LIGHT0)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.35, 0.35, 0.35, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
-
-        '''
-        # >>> FONTE DE LUZ - NOITE(LUZ SPOT DESLIGADA)
+        # >>> FONTE DE LUZ DIRECIONAL APAGADA
         '''
         # glEnable(GL_LIGHT0)
         # glLightfv(GL_LIGHT0, GL_AMBIENT, [0, 0, 0, 0])
         # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0, 0, 0, 0])
         # glLightfv(GL_LIGHT0, GL_SPECULAR, [0, 0, 0, 0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [76.5, 40, 55, 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [80, 120, 140, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0.03, 100]) # RAIO DE LUZ DIRECIONADO AO CENTRO DO CENÁRIO
 
         '''
-        # >>> FONTE DE LUZ SPOT- NOITE(TORRE ILUMINANDO PARTE DO TERRENO) #BETA
+        # >>> FONTE DE LUZ SPOT - NOITE(HELICOPTERO)
         '''
-        # glEnable(GL_LIGHT0)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [50, 19, 74, 1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [72, 0, 0]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
-        # glEnable(GL_LIGHTING)
-
-        '''
-        # >>> FONTE DE LUZ SPOT - NOITE(ILUMINAÇÃO DO ENTRADA-PORTÃO/METADE DO CAMPO)
-        '''
-        # glEnable(GL_LIGHT0)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [29.,4.3,75 ,1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [43, 0.03, 155]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
-        # glEnable(GL_LIGHTING)
-
-        '''
-        # >>> FONTE DE LUZ DIRECIONAL - NOITE(FARÓIS) 
-        '''
-        #Farol do Carro 01 - Inside 
-        glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.25, 0.25, 0.25, 1.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [59.7,0.03,173,1]) # PONTO DA FONTE LUMINOSA
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [106.5, 0.05, 173]) # DIREÇÃO DO RAIO DE LUZ
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 30); # ANGULO DE ABERTURA DO RAIO DE LUZ
-        glEnable(GL_LIGHTING)
-
-        #Farol do Carro 02 - 
+        # # ILUMINANDO A METADE SUPERIOR DO CENÁRIO
         # glEnable(GL_LIGHT1)
-        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1,1,1, 1.0])
-        # glLightfv(GL_LIGHT0, GL_POSITION, [40.,0.03,89 ,1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [31, 0.03, 75]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [76.5, 0.03, 0]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 90); # ANGULO DE ABERTURA DO RAIO DE LUZ
+
+        # # ILUMINANDO A METADE DIREITA/CENTRAL DO CENÁRIO
+        # glEnable(GL_LIGHT1)
+        # glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
+        # glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [43, 0.5, 155]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 100)
+        # glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+
+
+        '''
+        # >>> FONTE DE LUZ PONTUAL - SIRENE DE ALARME
+        '''
+        
+        # glEnable(GL_LIGHT2)
+        # glLightfv(GL_LIGHT2, GL_AMBIENT, [0.35, 0, 0, 0.1])
+        # glLightfv(GL_LIGHT2, GL_DIFFUSE, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT2, GL_SPECULAR, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT2, GL_POSITION, [40.7, 20, 74,1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, [60, 0.05, 74]) # [40,4,51]); #direcao da spotlight
+        # glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 0); #concentracao da luz, maior abre mais
+        # glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 30); # angulo de iluminaçao da spotlight
+        # glEnable(GL_LIGHTING)
+
+        # glEnable(GL_LIGHT3)
+        # glLightfv(GL_LIGHT3, GL_AMBIENT, [0.35, 0, 0, 0.1])
+        # glLightfv(GL_LIGHT3, GL_DIFFUSE, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT3, GL_SPECULAR, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT3, GL_POSITION, [40.7, 20, 74,1]) # PONTO DA FONTE LUMINOSA
+        # glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 0); #concentracao da luz, maior abre mais
+        # glLightf(GL_LIGHT3, GL_SPOT_CUTOFF, 30); # angulo de iluminaçao da spotlight
+        # glEnable(GL_LIGHTING)
+
+        # glEnable(GL_LIGHT4)
+        # glLightfv(GL_LIGHT4, GL_AMBIENT, [0.35, 0, 0, 0.1])
+        # glLightfv(GL_LIGHT4, GL_DIFFUSE, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT4, GL_SPECULAR, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT4, GL_POSITION, [40.7, 20, 74,1]) # PONTO DA FONTE LUMINOSA
+        # glLightf(GL_LIGHT4, GL_SPOT_EXPONENT, 1); #concentracao da luz, maior abre mais
+        # glLightf(GL_LIGHT4, GL_SPOT_CUTOFF, 15); # angulo de iluminaçao da spotlight
+        # glEnable(GL_LIGHTING)
+
+        # glEnable(GL_LIGHT5)
+        # glLightfv(GL_LIGHT5, GL_AMBIENT, [0.35, 0, 0, 0.1])
+        # glLightfv(GL_LIGHT5, GL_DIFFUSE, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT5, GL_SPECULAR, [0.35,0,0, 0.1])
+        # glLightfv(GL_LIGHT5, GL_POSITION, [29.,4.3,75 ,1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT5, GL_SPOT_DIRECTION, [43, 0.5, 155]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT5, GL_SPOT_CUTOFF, 15); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # glEnable(GL_LIGHTING)
+        
+
+        '''
+        # >>> FONTE DE LUZ SPOT - NOITE(FARÓIS) 
+        '''
+        # #Farol do Carro 02 - 
+        # glEnable(GL_LIGHT6)
+        # glLightfv(GL_LIGHT6, GL_AMBIENT, [0.1, 0.1, 0.1, 1.0])
+        # glLightfv(GL_LIGHT6, GL_DIFFUSE, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT6, GL_SPECULAR, [1,1,1, 1.0])
+        # glLightfv(GL_LIGHT6, GL_POSITION, [40.,0.03,89 ,1]) # PONTO DA FONTE LUMINOSA
+        # glLightfv(GL_LIGHT6, GL_SPOT_DIRECTION, [31, 0.03, 75]) # DIREÇÃO DO RAIO DE LUZ
+        # glLightf(GL_LIGHT6, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
         # glEnable(GL_LIGHTING)
 
         '''
@@ -123,21 +157,17 @@ class GLWidget(QOpenGLWidget):
         # >>> VISTA GERAL SUPERIOR (TERRENO COMPLETO)
         '''
 
-        glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
-        gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
+        # glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
+        # gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
         
         '''
         # >>> VISTA DO FUNDO DO TERRENO
         '''
-        # glFrustum(-35, 50, -6, 8, 5, 60)
+        # glFrustum(-35, 50, -6, 5, 5, 130) #ESQUERDA / DIREITA / BASE / ALTURA / NEAR / FAR
         # gluLookAt(117,20,80, 20,1,80, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
 
         '''
-        # >>> VISTA PARA AS LIXEIRAS 
         '''
-
-        # glFrustum(-35, 50, -6, 8, 5, 60)
-        # gluLookAt(50,8,60, 20,1,60, 0,1,0) # Vista do fundo, posicionada sobre à cerca, pegando 60% da prisão(árvore, arquibancada, campo e detentos)
 
         '''
         # >>> VISTA DA RUA (CANTEIRO INFERIOR)
@@ -154,8 +184,8 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> VISTA PARALELA À ARQUIBANCADA
         '''
-        # gluPerspective(100, (width/height), 5, 167)
-        # gluLookAt(90,10,145, 60,1,80, 0,1,0)
+        gluPerspective(100, (width/height), 5, 167)
+        gluLookAt(90,10,145, 60,1,80, 0,1,0)
 
         '''
         ############# FIM DAS VISTAS #############
