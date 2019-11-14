@@ -35,32 +35,35 @@ image = Image.new(mode=mode, size=resolution)
 pen = ImageDraw.Draw(image)
 
 # Cenário
-observer = Observer.a(Point(20, 60, -20), Point(35, 30, 0), resolution, size=(99,99))
+
+observer = Observer.a(Point(300, 80, 95), Point(150, 30, 35), resolution, size=(99,99))
 '''
                                         VISÃO SUPERIOR AO CAMPO
 '''
 #observer = Observer.a(Point(55, 60, 35), Point(55, 30, 35), resolution, size=(99,99))
 '''
 '''
-
+#Instânciando cenário
 scene = Scene()
 background_color = colors["light_blue"]
 
-''' OBJETOS '''
+''' 
+>   >   >   >   >   >   >   >   >   >   OBJETOS   <   <   <   <   <   <   <   <   <   <   <   
+'''
 
 '''
-                                        CHÃO DO CENÁRIO
+#                    $$                 CHÃO DO CENÁRIO
 '''
 scene.add_obj("Chão", Material(
     Plane(Point(0, 0, 0), Vector(0, 1, 0)),
     Texture(amb_color=RGB(0, 0, 0), dif_color=RGB(94, 77, 41), spe_color=RGB(94, 77, 41), shine=0.85)))
 
 '''
-                                        CAMPO
+#                    $$                 CAMPO
 '''
 #DANTAS IMPLEMENTA O QUADRADOOOOOOOOOOOOOOOOOO
 '''
-                                        TRAVE 1
+#                    $$                 TRAVE 1
 '''
 scene.add_obj("Trave_1_Esq", Material(
     Cylinder(Point(30, 0, 30),Vector(0,6.5,0),1, 0.5),
@@ -75,7 +78,7 @@ scene.add_obj("Trave_1_Sup", Material(
     Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
 
 '''
-                                        TRAVE 2
+#                    $$                 TRAVE 2
 '''
 scene.add_obj("Trave_2_Esq", Material(
     Cylinder(Point(80, 0, 30),Vector(0,6.5,0),1, 0.5),
@@ -89,7 +92,7 @@ scene.add_obj("Trave_2_Sup", Material(
     Cylinder(Point(80, 6.25, 30),Vector(0,0,10),1, 0.5),
     Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
 '''
-                                        MARCAÇÕES DO CAMPO
+#                    $$                 MARCAÇÕES DO CAMPO
 '''
 scene.add_obj("Linha_Inf", Material(
     Cylinder(Point(15,-0.1,15),Vector(80,0,0),0.1, 0.17),
@@ -112,37 +115,351 @@ scene.add_obj("Linha_Dir", Material(
     Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
 
 '''
-                                        BOLA
+#                    $$                 BOLA
 '''
 scene.add_obj("Bola", Material(
     Sphere(Point(35, 1.1, 43), 1),
     Texture(amb_color=RGB(66, 13, 66), dif_color=RGB(127, 127, 127), spe_color=RGB(178, 78, 178), shine=0.78)))
 
 '''
-                                        ÁRVORE 1
+#                    $$                 ÁRVORE FRONDOSA
 '''
 scene.add_obj("Folhas_Arvore_1", Material(
-    Cone(Point(10, 8, 15),Point(10,15,15), 5),
+    Cone(Point(10, 8, 70),Point(10,15,70), 5),
     Texture(amb_color=RGB(5, 255, 5), dif_color=RGB(1, 255, 1), spe_color=RGB(230, 255, 230), shine=0.58)))
 
 scene.add_obj("Tronco_Arvore_1", Material(
-    Cylinder(Point(10, 0, 15),Vector(0,8,0),1,3),
+    Cylinder(Point(10, 0, 70),Vector(0,8,0),1,3),
     Texture(amb_color=RGB(92, 51, 23), dif_color=RGB(92, 51, 23), spe_color=RGB(92, 51, 23), shine=0.78)))
 '''
+#                    $$                 ÁRVORE SECA
+'''
+scene.add_obj("Tronco_Arvore_2", Material(
+    Cylinder(Point(10, 0, 10),Vector(0,8,0),1,3),
+    Texture(amb_color=RGB(92, 51, 23), dif_color=RGB(92, 51, 23), spe_color=RGB(92, 51, 23), shine=0.78)))
+'''
+#                    $$                 CERCA
+'''
+'''
+#Colunas
+'''
+scene.add_obj("Cerca_Fundo_Lat", Material(
+    Cylinder(Point(0, 0, 0),Vector(0,13,0),1,1),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Arq", Material(
+    Cylinder(Point(0, 0, 80),Vector(0,13,0),1,1),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_Arq", Material(
+    Cylinder(Point(135, 0, 80),Vector(0,13,0),1,1),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_Lat", Material(
+    Cylinder(Point(135, 0, 0),Vector(0,13,0),1,1),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_1", Material(
+    Cylinder(Point(135, 0, 35),Vector(0,13,0),1,1),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_2", Material(
+    Cylinder(Point(155, 0, 35),Vector(0,13,0),1,0.5),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+'''
+#Fundo
 '''
 
-# scene.add_light("Luz Focal", FocalLight(
-#     origin=Point(50, 0, 35),
-#     amb_light=RGB(10, 10, 6), dif_light=RGB(100, 100, 30), spe_light=RGB(180, 180, 48)))
+scene.add_obj("Cerca_Fundo_H1", Material(
+    Cylinder(Point(0,-0.1,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+    
+scene.add_obj("Cerca_Fundo_H2", Material(
+    Cylinder(Point(0,1,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
 
-scene.add_light("Luz Far", FarLight(
-    direction=Vector(0, -10, 1),
-    amb_light=RGB(30, 30, 40), dif_light=RGB(60, 60, 100), spe_light=RGB(90, 90, 120)))
+scene.add_obj("Cerca_Fundo_H3", Material(
+    Cylinder(Point(0,2,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H4", Material(
+    Cylinder(Point(0,3,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H5", Material(
+    Cylinder(Point(0,4,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H6", Material(
+    Cylinder(Point(0,5,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H7", Material(
+    Cylinder(Point(0,6,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H8", Material(
+    Cylinder(Point(0,7,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H9", Material(
+    Cylinder(Point(0,8,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H10", Material(
+    Cylinder(Point(0,9,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H11", Material(
+    Cylinder(Point(0,10,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H12", Material(
+    Cylinder(Point(0,11,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_H13", Material(
+    Cylinder(Point(0,12,0),Vector(0,0,80),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+'''
+#Lateral
+'''
+scene.add_obj("Cerca_Fundo_Lat_H1", Material(
+    Cylinder(Point(0,-0.1,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+    
+scene.add_obj("Cerca_Fundo_Lat_H2", Material(
+    Cylinder(Point(0,1,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H3", Material(
+    Cylinder(Point(0,2,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H4", Material(
+    Cylinder(Point(0,3,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H5", Material(
+    Cylinder(Point(0,4,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H6", Material(
+    Cylinder(Point(0,5,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H7", Material(
+    Cylinder(Point(0,6,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H8", Material(
+    Cylinder(Point(0,7,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H9", Material(
+    Cylinder(Point(0,8,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H10", Material(
+    Cylinder(Point(0,9,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H11", Material(
+    Cylinder(Point(0,10,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H12", Material(
+    Cylinder(Point(0,11,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Fundo_Lat_H13", Material(
+    Cylinder(Point(0,12,0),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+'''
+#Frente
+'''
+scene.add_obj("Cerca_Frente_H1", Material(
+    Cylinder(Point(135,-0.1,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+    
+scene.add_obj("Cerca_Frente_H2", Material(
+    Cylinder(Point(135,1,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H3", Material(
+    Cylinder(Point(135,2,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H4", Material(
+    Cylinder(Point(135,3,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H5", Material(
+    Cylinder(Point(135,4,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H6", Material(
+    Cylinder(Point(135,5,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H7", Material(
+    Cylinder(Point(135,6,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H8", Material(
+    Cylinder(Point(135,7,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H9", Material(
+    Cylinder(Point(135,8,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H10", Material(
+    Cylinder(Point(135,9,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H11", Material(
+    Cylinder(Point(135,10,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H12", Material(
+    Cylinder(Point(135,11,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Frente_H13", Material(
+    Cylinder(Point(135,12,80),Vector(0,0,-45),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+'''
+PORTÃO
+'''
+scene.add_obj("Cerca_Portao_H1", Material(
+    Cylinder(Point(155,-0.1,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+    
+scene.add_obj("Cerca_Portao_H2", Material(
+    Cylinder(Point(155,1,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H3", Material(
+    Cylinder(Point(155,2,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H4", Material(
+    Cylinder(Point(155,3,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H5", Material(
+    Cylinder(Point(155,4,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H6", Material(
+    Cylinder(Point(155,5,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H7", Material(
+    Cylinder(Point(155,6,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H8", Material(
+    Cylinder(Point(155,7,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H9", Material(
+    Cylinder(Point(155,8,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H10", Material(
+    Cylinder(Point(155,9,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H11", Material(
+    Cylinder(Point(155,10,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H12", Material(
+    Cylinder(Point(155,11,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Portao_H13", Material(
+    Cylinder(Point(155,12,35),Vector(-20,0,-35),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+'''
+#Lateral da arquibancada
+'''
+scene.add_obj("Cerca_Arq_H1", Material(
+    Cylinder(Point(0,-0.1,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+    
+scene.add_obj("Cerca_Arq_H2", Material(
+    Cylinder(Point(0,1,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H3", Material(
+    Cylinder(Point(0,2,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H4", Material(
+    Cylinder(Point(0,3,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H5", Material(
+    Cylinder(Point(0,4,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H6", Material(
+    Cylinder(Point(0,5,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H7", Material(
+    Cylinder(Point(0,6,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H8", Material(
+    Cylinder(Point(0,7,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H9", Material(
+    Cylinder(Point(0,8,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H10", Material(
+    Cylinder(Point(0,9,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H11", Material(
+    Cylinder(Point(0,10,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H12", Material(
+    Cylinder(Point(0,11,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+scene.add_obj("Cerca_Arq_H13", Material(
+    Cylinder(Point(0,12,80),Vector(135,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
+
+'''
+>   >   >   >   >   >   >   >   >   >   FONTES DE LUZ
+'''
+scene.add_light("Sol", FarLight(
+    direction=Vector(0, -10, 35),
+    amb_light=RGB(0, 10, 44), dif_light=RGB(150, 150, 150), spe_light=RGB(255, 255, 255)))
 
 scene.add_light("Luz Spot", SpotLight(
     origin=Point(55, 15, 35), direction=Vector(0, -14, 0), angle=60,
     amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)))
 
+# scene.add_light("Alarme", FocalLight(
+#     origin=Point(55, 0, 35),
+#     amb_light=RGB(10, 10, 6), dif_light=RGB(100, 100, 30), spe_light=RGB(180, 180, 48)))
+
+
+'''
+>>>     EXECUÇÃO DO RAYCAST
+'''
 # Executar o raycast e desenhar na tela.
 for y_index in range(resolution[1]):
     for x_index in range(resolution[0]):
