@@ -22,12 +22,12 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> FONTE DE LUZ DIRECIONAL - SOL
         '''
-        glEnable(GL_LIGHT0)
-        glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [80, 120, 140, 1.0]) # POSIÇÃO ALEATÓRIA SETADA PARA O SOL
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0.03, 100]) # RAIO DE LUZ DIRECIONADO AO CENTRO DO CENÁRIO
+        # glEnable(GL_LIGHT0)
+        # glLightfv(GL_LIGHT0, GL_AMBIENT, [0.9, 0.9, 0.9, 1.0])
+        # glLightfv(GL_LIGHT0, GL_DIFFUSE, [0.7, 0.7, 0.7, 1.0])
+        # glLightfv(GL_LIGHT0, GL_SPECULAR, [1., 1., 1., 1.0])
+        # glLightfv(GL_LIGHT0, GL_POSITION, [80, 120, 140, 1.0]) # POSIÇÃO ALEATÓRIA SETADA PARA O SOL
+        # glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, [60, 0.03, 100]) # RAIO DE LUZ DIRECIONADO AO CENTRO DO CENÁRIO
 
         ''' 
         # >>> FONTE DE LUZ DIRECIONAL - LUA
@@ -53,23 +53,23 @@ class GLWidget(QOpenGLWidget):
         # >>> FONTE DE LUZ SPOT - NOITE(HELICOPTERO)
         '''
         # # ILUMINANDO A METADE SUPERIOR DO CENÁRIO
-        # glEnable(GL_LIGHT1)
-        # glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [76.5, 0.03, 0]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 90); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        glEnable(GL_LIGHT1)
+        glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
+        glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [76.5, 0.03, 0]) # DIREÇÃO DO RAIO DE LUZ
+        glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 90); # ANGULO DE ABERTURA DO RAIO DE LUZ
 
-        # # ILUMINANDO A METADE DIREITA/CENTRAL DO CENÁRIO
-        # glEnable(GL_LIGHT1)
-        # glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
-        # glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
-        # glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [43, 0.5, 155]) # DIREÇÃO DO RAIO DE LUZ
-        # glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 100)
-        # glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
+        # ILUMINANDO A METADE DIREITA/CENTRAL DO CENÁRIO
+        glEnable(GL_LIGHT1)
+        glLightfv(GL_LIGHT1, GL_AMBIENT, [0.7, 0.7, 0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, [0.7,0.7,0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_SPECULAR, [0.7,0.7,0.7, 1.0])
+        glLightfv(GL_LIGHT1, GL_POSITION, [82, 60, 50, 1]) # PONTO DA FONTE LUMINOSA
+        glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, [43, 0.5, 155]) # DIREÇÃO DO RAIO DE LUZ
+        glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 100)
+        glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 60); # ANGULO DE ABERTURA DO RAIO DE LUZ
 
 
         '''
@@ -157,8 +157,8 @@ class GLWidget(QOpenGLWidget):
         # >>> VISTA GERAL SUPERIOR (TERRENO COMPLETO)
         '''
 
-        glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
-        gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
+        # glFrustum(-35, 50, -6, 8, 5, 60) #xmin, xmax,ymin,ymax,near,far
+        # gluLookAt(37,37,50, 50,0,50, 0,1,0) # Vista de cima, posicionada acima da rua, pegando todo o perímetro da prisão
         
         '''
         # >>> VISTA DO FUNDO DO TERRENO
@@ -172,8 +172,8 @@ class GLWidget(QOpenGLWidget):
         '''
         # >>> VISTA DA RUA (CANTEIRO INFERIOR)
         '''
-        # gluPerspective(125, (width/height), 2, 150)
-        # gluLookAt(11,4,30, 120,1,65, 0,1,0)
+        gluPerspective(125, (width/height), 2, 150)
+        gluLookAt(11,4,30, 120,1,65, 0,1,0)
 
         '''
         # >>> VISTA DA ENTRADA DA PRISÃO (DENTRO DA PRISÃO)

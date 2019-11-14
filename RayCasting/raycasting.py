@@ -2,7 +2,7 @@
 from python.raycaster.auxi import RGB
 from python.raycaster.light import FocalLight, FarLight, SpotLight
 from python.raycaster.object import Material, Texture
-from python.raycaster.object.surface import Plane, Sphere
+from python.raycaster.object.surface import *
 from python.raycaster.physics import *
 from python.raycaster.scene import Scene, Observer
 # Importar bibliotecas.
@@ -17,7 +17,7 @@ mode = 'RGB'
 colors = {
     "white": (255, 255, 255),
     "black": (0, 0, 0),
-    "light_blue": (0, 181, 204),
+    "light_blue": (100, 149, 237),
     "dark_blue": (50, 50, 200),
     "navy_blue": (0, 0, 128),
     "light_green": (46, 204, 113),
@@ -35,25 +35,113 @@ image = Image.new(mode=mode, size=resolution)
 pen = ImageDraw.Draw(image)
 
 # Cenário
-observer = Observer.a(Point(-8, 10, -8), Point(-6, 9, -6), resolution, size=(7, 7))
+observer = Observer.a(Point(20, 60, -20), Point(35, 30, 0), resolution, size=(99,99))
+'''
+                                        VISÃO SUPERIOR AO CAMPO
+'''
+#observer = Observer.a(Point(55, 60, 35), Point(55, 30, 35), resolution, size=(99,99))
+'''
+'''
+
 scene = Scene()
-background_color = colors["navy_blue"]
-scene.add_obj("ground", Material(
+background_color = colors["light_blue"]
+
+''' OBJETOS '''
+
+'''
+                                        CHÃO DO CENÁRIO
+'''
+scene.add_obj("Chão", Material(
     Plane(Point(0, 0, 0), Vector(0, 1, 0)),
-    Texture(amb_color=RGB(0, 0, 0), dif_color=RGB(25, 89, 25), spe_color=RGB(4, 12, 2), shine=0.25)))
-scene.add_obj("ball", Material(
-    Sphere(Point(10, 5, 10), 5),
-    Texture(amb_color=RGB(13, 13, 13), dif_color=RGB(127, 127, 127), spe_color=RGB(178, 178, 178), shine=0.78)))
-scene.add_light("light_1", FocalLight(
-    origin=Point(5, 0, 0),
-    amb_light=RGB(10, 10, 6), dif_light=RGB(100, 100, 30), spe_light=RGB(180, 180, 48)))
-scene.add_light("light_2", FarLight(
+    Texture(amb_color=RGB(0, 0, 0), dif_color=RGB(94, 77, 41), spe_color=RGB(94, 77, 41), shine=0.85)))
+
+'''
+                                        CAMPO
+'''
+#DANTAS IMPLEMENTA O QUADRADOOOOOOOOOOOOOOOOOO
+'''
+                                        TRAVE 1
+'''
+scene.add_obj("Trave_1_Esq", Material(
+    Cylinder(Point(30, 0, 30),Vector(0,6.5,0),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+
+scene.add_obj("Trave_1_Dir", Material(
+    Cylinder(Point(30, 0, 40),Vector(0,6.5,0),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+
+scene.add_obj("Trave_1_Sup", Material(
+    Cylinder(Point(30, 6.25, 30),Vector(0,0,10),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+
+'''
+                                        TRAVE 2
+'''
+scene.add_obj("Trave_2_Esq", Material(
+    Cylinder(Point(80, 0, 30),Vector(0,6.5,0),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+
+scene.add_obj("Trave_2_Dir", Material(
+    Cylinder(Point(80, 0, 40),Vector(0,6.5,0),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+
+scene.add_obj("Trave_2_Sup", Material(
+    Cylinder(Point(80, 6.25, 30),Vector(0,0,10),1, 0.5),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=0.78)))
+'''
+                                        MARCAÇÕES DO CAMPO
+'''
+scene.add_obj("Linha_Inf", Material(
+    Cylinder(Point(15,-0.1,15),Vector(80,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
+
+scene.add_obj("Linha_Sup", Material(
+    Cylinder(Point(15,-0.1,55),Vector(80,0,0),0.1, 0.17),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
+
+scene.add_obj("Linha_Esq", Material(
+    Cylinder(Point(15,-0.1,15),Vector(0,0,40),0.1, 0.17),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
+
+scene.add_obj("Linha_Central", Material(
+    Cylinder(Point(55,-0.1,15),Vector(0,0,40),0.1, 0.17),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
+
+scene.add_obj("Linha_Dir", Material(
+    Cylinder(Point(95,-0.1,15),Vector(0,0,40),0.1, 0.17),
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 255, 255), spe_color=RGB(255, 255, 255), shine=1)))
+
+'''
+                                        BOLA
+'''
+scene.add_obj("Bola", Material(
+    Sphere(Point(35, 1.1, 43), 1),
+    Texture(amb_color=RGB(66, 13, 66), dif_color=RGB(127, 127, 127), spe_color=RGB(178, 78, 178), shine=0.78)))
+
+'''
+                                        ÁRVORE 1
+'''
+scene.add_obj("Folhas_Arvore_1", Material(
+    Cone(Point(10, 8, 15),Point(10,15,15), 5),
+    Texture(amb_color=RGB(5, 255, 5), dif_color=RGB(1, 255, 1), spe_color=RGB(230, 255, 230), shine=0.58)))
+
+scene.add_obj("Tronco_Arvore_1", Material(
+    Cylinder(Point(10, 0, 15),Vector(0,8,0),1,3),
+    Texture(amb_color=RGB(92, 51, 23), dif_color=RGB(92, 51, 23), spe_color=RGB(92, 51, 23), shine=0.78)))
+'''
+'''
+
+# scene.add_light("Luz Focal", FocalLight(
+#     origin=Point(50, 0, 35),
+#     amb_light=RGB(10, 10, 6), dif_light=RGB(100, 100, 30), spe_light=RGB(180, 180, 48)))
+
+scene.add_light("Luz Far", FarLight(
     direction=Vector(0, -10, 1),
     amb_light=RGB(30, 30, 40), dif_light=RGB(60, 60, 100), spe_light=RGB(90, 90, 120)))
-scene.add_light("light_3", SpotLight(
-    origin=Point(9, 15, 9), direction=Vector(1, -10, 1), angle=30,
-    amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)
-))
+
+scene.add_light("Luz Spot", SpotLight(
+    origin=Point(55, 15, 35), direction=Vector(0, -14, 0), angle=60,
+    amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)))
 
 # Executar o raycast e desenhar na tela.
 for y_index in range(resolution[1]):
@@ -90,7 +178,7 @@ image.save(image_path + image_name)
 
 # Setup.
 def onclick(event):
-    print("Clique: ({0}, {1})".format(event.x, event.y))
+    print("\n>>>@>>>@>>>\nClique: ({0}, {1})\n".format(event.x, event.y))
     line = observer.shoot(event.x, event.y)
     min_coef = None
     min_obj = None
@@ -104,7 +192,7 @@ def onclick(event):
                 min_obj = obj_name
 
             p = line(result) if result is not None else None
-            print("{0} ('{1}', {2}) @ {3} {4}".format(
+            print("{0} ('{1}', {2}) @ {3} {4}\n".format(
                 obj_name,
                 scene.objects[obj_name][0].surface.__class__.__name__,
                 "Visível" if scene.objects[obj_name][1] else "Invisível",
@@ -116,17 +204,17 @@ def onclick(event):
         color = RGB(0, 0, 0)
         for light_name in scene.lights:
             color += scene.lights[light_name][0].illuminate(scene.objects[min_obj][0], line(min_coef), observer)
-        print("Interseção: {0}, Cor: {1}".format(min_obj, color))
+        print("Interseção: {0}, Cor: {1}\n".format(min_obj, color))
     else:
         # Cor a ser desenhada = cor do plano de fundo.
         color = RGB(0, 0, 0)
         for light_name in scene.lights:
             color += RGB(0, 0, 128) * scene.lights[light_name][0].amb_light
-        print("Interseção: Plano de Fundo, Cor: {0}".format(color))
+        print("Interseção: Plano de Fundo, Cor: {0}\n".format(color))
 
 
 root = tk.Tk()
-root.title("RayCaster")
+root.title("RayCaster >>> EQUIPE_O1")
 root.bind("<Button-1>", onclick)
 canvas = tk.Canvas(master=root, width=resolution[0], height=resolution[1])
 canvas.pack()

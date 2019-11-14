@@ -1,5 +1,5 @@
 from OpenGL.GL import *
-from work_part1 import obj
+from objetos import obj
 def draw_circuit():
     rgb_wall_material = [44/255, 137/255, 142/255]
     rgb_vermelho = [1,0,0]
