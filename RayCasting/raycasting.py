@@ -26,7 +26,10 @@ colors = {
     "orange": (255, 165, 0),
     "yellow": (247, 202, 24),
     "brown": (94, 77, 41),
-    "magenta": (202, 31, 123)
+    "magenta": (202, 31, 123),
+    "wood": (92, 51, 23),
+    "leaf": (5, 255, 5),
+    "plastic_red":(255, 13, 66)
 }
 
 # Configurações
@@ -35,8 +38,21 @@ image = Image.new(mode=mode, size=resolution)
 pen = ImageDraw.Draw(image)
 
 # Cenário
+'''
+                                        VISÃO PANORÂMICA FRONTAL
+'''
+observer = Observer.a(Point(155, 40, 75), Point(140, 30, 60), resolution, size=(99,99))
 
-observer = Observer.a(Point(300, 80, 95), Point(150, 30, 35), resolution, size=(99,99))
+'''
+                                        VISÃO DO FUNDO DO CENÁRIO
+'''
+#observer = Observer.a(Point(-40, 40, 75), Point(-20, 30, 60), resolution, size=(99,99))
+
+'''
+                                        VISÃO SUPERIOR AO CENÁRIO
+'''
+#observer = Observer.a(Point(55, 150, 35), Point(55, 120, 35), resolution, size=(99,99))
+
 '''
                                         VISÃO SUPERIOR AO CAMPO
 '''
@@ -61,7 +77,7 @@ scene.add_obj("Chão", Material(
 '''
 #                    $$                 CAMPO
 '''
-#DANTAS IMPLEMENTA O QUADRADOOOOOOOOOOOOOOOOOO
+#
 '''
 #                    $$                 TRAVE 1
 '''
@@ -442,19 +458,29 @@ scene.add_obj("Cerca_Arq_H13", Material(
     Texture(amb_color=RGB(130,130,130), dif_color=RGB(160,160,160), spe_color=RGB(180,180,180), shine=0.40)))
 
 '''
+                    $$                  Alarme
+'''
+scene.add_obj("Alarme", Material(
+    Sphere(Point(120, 5, 55), 1.5),
+    Texture(amb_color=RGB(255, 13, 66), dif_color=RGB(255, 127, 127), spe_color=RGB(255, 78, 178), shine=0.78)))
+'''
 >   >   >   >   >   >   >   >   >   >   FONTES DE LUZ
 '''
 scene.add_light("Sol", FarLight(
     direction=Vector(0, -10, 35),
     amb_light=RGB(0, 10, 44), dif_light=RGB(150, 150, 150), spe_light=RGB(255, 255, 255)))
 
+
 scene.add_light("Luz Spot", SpotLight(
     origin=Point(55, 15, 35), direction=Vector(0, -14, 0), angle=60,
     amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)))
 
 # scene.add_light("Alarme", FocalLight(
-#     origin=Point(55, 0, 35),
-#     amb_light=RGB(10, 10, 6), dif_light=RGB(100, 100, 30), spe_light=RGB(180, 180, 48)))
+#     origin=Point(120, 5, 55),
+#     amb_light=RGB(215, 10, 6), dif_light=RGB(215, 10, 6), spe_light=RGB(215, 10, 6)))
+
+
+#     amb_light=RGB(215, 10, 6), dif_light=RGB(215, 100, 30), spe_light=RGB(215, 130, 48)))
 
 
 '''
