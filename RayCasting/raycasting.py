@@ -462,7 +462,7 @@ scene.add_obj("Cerca_Arq_H13", Material(
 '''
 scene.add_obj("Alarme", Material(
     Sphere(Point(120, 5, 55), 1.5),
-    Texture(amb_color=RGB(255, 13, 66), dif_color=RGB(255, 127, 127), spe_color=RGB(255, 78, 178), shine=0.78)))
+    Texture(amb_color=RGB(255, 0, 0), dif_color=RGB(255, 7.50, 7.50), spe_color=RGB(255, 20, 20), shine=0.78)))
 '''
 >   >   >   >   >   >   >   >   >   >   FONTES DE LUZ
 '''
@@ -471,9 +471,9 @@ scene.add_light("Sol", FarLight(
     amb_light=RGB(0, 10, 44), dif_light=RGB(150, 150, 150), spe_light=RGB(255, 255, 255)))
 
 
-scene.add_light("Luz Spot", SpotLight(
-    origin=Point(55, 15, 35), direction=Vector(0, -14, 0), angle=60,
-    amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)))
+# scene.add_light("Luz Spot", SpotLight(
+#     origin=Point(55, 15, 35), direction=Vector(0, -14, 0), angle=60,
+#     amb_light=RGB(50, 25, 25), dif_light=RGB(255, 100, 100), spe_light=RGB(255, 120, 120)))
 
 # scene.add_light("Alarme", FocalLight(
 #     origin=Point(120, 5, 55),
@@ -557,7 +557,7 @@ def onclick(event):
 
 
 root = tk.Tk()
-root.title("RayCaster >>> EQUIPE_O1")
+root.title("RayCaster")
 root.bind("<Button-1>", onclick)
 canvas = tk.Canvas(master=root, width=resolution[0], height=resolution[1])
 canvas.pack()
