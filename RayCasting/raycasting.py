@@ -41,7 +41,12 @@ pen = ImageDraw.Draw(image)
 '''
                                         VISÃO PANORÂMICA FRONTAL
 '''
-observer = Observer.a(Point(155, 40, 75), Point(140, 30, 60), resolution, size=(99,99))
+#observer = Observer.a(Point(155, 40, 75), Point(140, 30, 60), resolution, size=(99,99))
+
+'''
+                                        VISÃO PARA A ESFERA-ALARME
+'''
+observer = Observer.a(Point(120, 25, 30), Point(120, 10, 50), resolution, size=(70,70))
 
 '''
                                         VISÃO DO FUNDO DO CENÁRIO
@@ -462,7 +467,7 @@ scene.add_obj("Cerca_Arq_H13", Material(
 '''
 scene.add_obj("Alarme", Material(
     Sphere(Point(120, 5, 55), 1.5),
-    Texture(amb_color=RGB(255, 0, 0), dif_color=RGB(255, 7.50, 7.50), spe_color=RGB(255, 20, 20), shine=0.78)))
+    Texture(amb_color=RGB(255, 255, 255), dif_color=RGB(255, 190, 190), spe_color=RGB(255, 0, 0), shine=0.78)))
 '''
 >   >   >   >   >   >   >   >   >   >   FONTES DE LUZ
 '''
